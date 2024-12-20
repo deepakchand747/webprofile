@@ -90,19 +90,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #007bff;
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 50%;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    display: none;
-}
+
 .spaceship {
     position: fixed;
     top: 50%;
@@ -122,5 +110,4 @@ footer {
 .flip-vertical {
     transform: scaleY(-1);
 }
-
 /* Skills Section */
