@@ -1,0 +1,251 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #1f1f1f;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #00e6ff;
+}
+
+header h2 {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #a6a6a6;
+}
+
+nav {
+    background: #2c2c2c;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #00e6ff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff4081;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        padding: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+}
+
+
+section {
+    padding: 2rem 0;
+}
+
+section h2 {
+    border-bottom: 2px solid #00e6ff;
+    padding-bottom: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+a{
+    color: rgba(147, 147, 206, 0.621);
+}
+
+.project, .experience, .education {
+    margin: 1rem 0;
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.project:hover, .experience:hover, .education:hover {
+    background: #2c2c2c;
+}
+
+footer {
+    background: #1f1f1f;
+    color: #fff;
+    text-align: center;
+    /* padding: 1rem 0; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.spaceship {
+    position: fixed;
+    top: 50%;
+    right: 2px;
+    width: 70px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.spaceship:hover {
+    transform: scale(1.2);
+}
+
+.inverted-image {
+    filter: invert(100%);
+}
+
+.flip-vertical {
+    transform: scaleY(-1);
+}
+/* Skills Section */
+
+
+/* Card */
+.card {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 280px; /* Adjust the width as needed */
+    background-color: #00e5ff48; /* Professional purple background color */
+    color: #fff; /* White text color for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h2 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #e0e0e0; /* Light grey text color for contrast */
+  }
+
+  /* Slide-Show:*/
+
+  /* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* The dots/circles */
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #99e1e7;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+
+  
+  
