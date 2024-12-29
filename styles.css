@@ -144,9 +144,9 @@ footer {
 .card {
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
     width: 280px; /* Adjust the width as needed */
     background-color: #00e5ff48; /* Professional purple background color */
     color: #fff; /* White text color for contrast */
