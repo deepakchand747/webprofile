@@ -59,6 +59,11 @@ nav ul li a:hover {
     color: #ff4081;
 }
 
+.no-bullet { 
+  list-style-type: none;
+  margin-top: 10px;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     nav ul {
