@@ -11,31 +11,33 @@
    
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Deepak Chand</h1>
-            <h2>Senior Software Developer Team Lead</h2>
-        </div>
-    </header>
+    
+        <header>
+            <div class="container">
+                <h1>Deepak Chand</h1>
+                <h2>Senior Software Developer Team Lead</h2>
+            </div>
+        </header>        
 
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" onclick="highlightHeading('about-heading')">About</a></li>
+                <li><a href="#skills" onclick="highlightHeading('skills-heading')">Skills</a></li>
+                <li><a href="#projects" onclick="highlightHeading('projects-heading')">Projects</a></li>
+                <li><a href="#experience" onclick="highlightHeading('experience-heading')">Experience</a></li>
+                <li><a href="#education" onclick="highlightHeading('education-heading')">Education</a></li>
+                <li><a href="#contact" onclick="highlightHeading('contact-heading')">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+
     <img src="images/spaceship.svg" alt="Spaceship" class="spaceship inverted-image flip-vertical" id="spaceship">
 
-    <section id="about">
+    <section id="about" onshow="highlightHeading('about-heading')">
         <div class="container">
-            <h2>About Me</h2>
+            <h2 id="about-heading">About Me</h2>
             <p>Hello! I'm Deepak, from the friendly islands of Fiji. I work as a Senior Software Developer and Team Lead with over 11 years of experience in software development.
                 I am passionate about building scalable web applications using ASP.NET Core and desktop applications. I firmly believe in leading by example—starting by doing the work yourself. This approach not only ensures excellence but also helps nurture individuals into great leaders..</p>
         </div>
@@ -43,22 +45,68 @@
 
     <section id="skills">
         <div class="container">
-            <h2>Skills</h2>
+            <h2 id="skills-heading">Skills</h2>
+
+            <div style="margin-left: 6%;">
+            <div class="skillsCard"> 
+            
+            <h3><u>Programming Languages:</u></h3>
             <ul>
-                <li>C# Development</li>
-                <li>ASP.NET MVC</li>
-                <li>SQL Server</li>
-                <li>Azure</li>
-                <li>Team Leadership</li>
-                <li>Agile Methodologies</li>
-                <li>DevOps Practices</li>
+                <li>C#</li>
+                <li>VB.Net</li>
+                <li>VBA</li>
+                <li>SQL</li>                
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
             </ul>
         </div>
+            <div class="skillsCard">
+                <h3><u>Frameworks and Libraries:</u></h3>
+                <ul>
+                    <li>ASP.NET Core</li>
+                    <li>ASP.NET Core Web Api</li>
+                    <li>ASP.NET MVC 5</li>
+                    <li>Entity Framework</li>                
+                    <li>Bootstrap</li>
+                    <li>React</li>
+                    <li>jQuery</li>
+                </ul>
+            </div>
+
+            <div class="skillsCard">
+                <h3><u>Backend Development:</u></h3>
+                <ul>
+                    <li>RESTful API design & development</li>
+                    <li>ASP.NET Core Web Api</li>
+                    <li>Authentication & Authorization</li>
+                    <li>Database management (e.g., SQL Server, Azure SQL Server, SQLite, Ms Access)</li>                              
+                </ul>
+            </div>
+
+            <div class="skillsCard" >
+                <h3><u>Azure Technologies:</u></h3>
+                <ul>
+                    <li>Azure App Service plus Web App Management</li>
+                    <li>Azure SQL Database Management</li>
+                    <li>Azure Functions</li>
+                    <li>Azure Virtual Machines</li>   
+                    <li>Azure Blob Storage</li>                             
+                </ul>
+
+                
+            </div>                      
+            
+        </div>
+        <a href="skills.html" style="float: right; padding: 1.5%;">Click to view more skills>>></a>
+        </div>
+
+        
     </section>
 
     <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
+        <div class="container" style="margin-left: 10%;">
+            <h2 id="projects-heading">Projects</h2>
             <p>Coming soon: details about my notable projects.</p>
 
             <div class="slideshow-container">
@@ -96,7 +144,7 @@
 
     <section id="experience">
         <div class="container">
-            <h2>Experience</h2>
+            <h2 id="experience-heading">Experience</h2>
             <!-- <p>Coming soon: my professional experience and achievements. -->
             <h3>Standss (South Pacific) Limited: (11 years+)</h3>                                                   
             <div class="card">            
@@ -142,7 +190,7 @@
 
     <section id="education">
         <div class="container">
-            <h2>Education</h2>
+            <h2 id="education-heading">Education</h2>
             <h3>Bachelor of Science in Computing Science & Information Systems:</h3>
             <ul>
                 <li>University of the South Pacific</li>
@@ -171,7 +219,7 @@
 
     <section id="contact">
         <div class="container last-container">
-            <h2>Contact Me</h2>
+            <h2 id="contact-heading">Contact Me</h2>
             <p>
                 Email: <a href="mailto:deepakchand747@outlook.com">deepakchand747@outlook.com</a>
                 &nbsp;|&nbsp;<a href="https://www.linkedin.com/in/deepak-chand-072a93111">LinkedIn Profile</a>
@@ -188,8 +236,24 @@
     </footer>
 
     <!-- <a href="#" class="back-to-top">&#8679;</a>  -->
-
+    <!-- <script> function highlightHeading(headingId) { var heading = document.getElementById(headingId); heading.classList.add("highlightHeadling"); setTimeout(function() { heading.classList.remove("highlightHeadling"); }, 3000); } </script> -->
+   
     <script src="js/slideshow.js"></script>
     <script src="js/spaceship.js"></script>
+    <script src="js/general.js"></script>
+    <script>
+        window.onload = function() 
+         { 
+            
+            if (window.location.hash) 
+            { 
+                var fullhashtext = window.location.hash;
+                var headingId = fullhashtext.substring(1); 
+                highlightHeading(headingId); 
+                // history.replaceState(null, null, window.location.pathname + window.location.search);
+            } 
+        }
+    </script>
+    
 </body>
 </html>

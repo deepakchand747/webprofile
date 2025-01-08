@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Heading</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading1" onclick="highlightHeading('heading1')">Click me to highlight!</h1>
+    <h1 id="heading2" onclick="highlightHeading('heading2')">Click me too!</h1>
+    <script>
+        function highlightHeading(headingId) {
+            var heading = document.getElementById(headingId);
+            heading.classList.add("highlight");
+            setTimeout(function() {
+                heading.classList.remove("highlight");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

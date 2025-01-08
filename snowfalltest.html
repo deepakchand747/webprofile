@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio with Snow Effect</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+            color: white;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Cool gradient background */
+        }
+        #snowCanvas {
+            pointer-events: none; /* Allow interaction with foreground elements */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .content {
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            padding-top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Snow Canvas -->
+    <canvas id="snowCanvas"></canvas>
+
+    <!-- Content -->
+    <div class="container content">
+        <h1 class="display-4">Welcome to My Portfolio</h1>
+        <p class="lead">Enjoy the snow effect while you explore!</p>
+        <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Snow Effect Script -->
+    <script>
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let snowflakes = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        function createSnowflakes() {
+            snowflakes = [];
+            for (let i = 0; i < 100; i++) {
+                snowflakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 3 + 1,
+                    speed: Math.random() * 2 + 0.5,
+                    opacity: Math.random()
+                });
+            }
+        }
+
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            snowflakes.forEach(snowflake => {
+                ctx.globalAlpha = snowflake.opacity;
+                ctx.beginPath();
+                ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        function updateSnowflakes() {
+            snowflakes.forEach(snowflake => {
+                snowflake.y += snowflake.speed;
+                if (snowflake.y > height) {
+                    snowflake.y = -snowflake.radius;
+                    snowflake.x = Math.random() * width;
+                }
+            });
+        }
+
+        function animate() {
+            drawSnowflakes();
+            updateSnowflakes();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createSnowflakes();
+        });
+
+        resizeCanvas();
+        createSnowflakes();
+        animate();
+    </script>
+</body>
+</html>

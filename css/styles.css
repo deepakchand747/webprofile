@@ -29,7 +29,11 @@ header h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     color: #a6a6a6;
+    padding-bottom: 2%;
+    
 }
+
+.highlightHeadling { background-color: #00e6ff; }
 
 nav {
     background: #2c2c2c;
@@ -155,15 +159,45 @@ footer {
 
 /* Card */
 .card {
-    display: inline-block;
+    display: inline-block;    
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    margin: 5px;
+    margin: 12px;
     width: 280px; /* Adjust the width as needed */
     background-color: #00e5ff48; /* Professional purple background color */
     color: #fff; /* White text color for contrast */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .skillsCard {
+    display: inline-block;    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 6px;
+    width: 260px; /* Adjust the width as needed */
+    background-color: #0d4e55; /* Professional purple background color */
+    color: #fff; /* White text color for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .skillsCardNew {
+    display: inline-block;    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 6px;
+    /*width: 260px; /* Adjust the width as needed */
+    background-color: #00a6ff48; /* Professional purple background color */
+    color: #fff; /* White text color for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  
+
+  .firstcard-margin {
+    margin-left: 10%;    
   }
   
   .card h2 {
