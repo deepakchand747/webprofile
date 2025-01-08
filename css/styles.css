@@ -109,11 +109,18 @@ a{
     background: #2c2c2c;
 }
 
+.last-container {
+  /* padding-bottom: 10px;   */
+  margin-bottom: 5%;
+
+}
+
 footer {
     background: #1f1f1f;
     color: #fff;
     text-align: center;
     /* padding: 1rem 0; */
+    margin-top: 5%;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -121,7 +128,7 @@ footer {
 
 .spaceship {
     position: fixed;
-    top: 50%;
+    top: 15%;
     right: 2px;
     width: 70px;
     cursor: pointer;

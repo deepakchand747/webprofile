@@ -4,7 +4,7 @@
 
  spaceship.addEventListener('click', () => {
      if (scrollingDown) {
-         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+         window.scrollTo({ top: document.body.scrollHeight , behavior: 'smooth' });
      } else {
          window.scrollTo({ top: 0, behavior: 'smooth' });
      }
@@ -21,5 +21,5 @@
      }
 
      // Move spaceship slightly
-     spaceship.style.top = `${50 + window.scrollY * 0.05}%`;
+     spaceship.style.top = `${ window.scrollY * 0.04}%`;
  });
