@@ -1,297 +1,969 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Deepak Chand - Senior Software Developer Team Lead with expertise in C#, ASP.NET MVC, SQL Server, and Azure."
-    />
-    <title>Deepak Chand - Senior Software Developer</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>Deepak Chand</h1>
-        <h2>Senior Software Developer Team Lead</h2>
-      </div>
+    <title>Deepak Chand - Senior Software Developer & Team Lead</title>
+    <meta name="description" content="Portfolio of Deepak Chand, Senior Software Developer & Team Lead specialising in .NET, Azure, and scalable web applications.">
+    <style>
+        :root {
+            --bg: #050816;
+            --bg-elevated: #0b1022;
+            --accent: #6366f1;
+            --accent-soft: rgba(99, 102, 241, 0.15);
+            --accent-strong: #4f46e5;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --card: rgba(15, 23, 42, 0.9);
+            --border-subtle: rgba(148, 163, 184, 0.2);
+            --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.7);
+            --radius-xl: 18px;
+            --radius-2xl: 24px;
+            --transition-fast: 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout */
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .page {
+                padding-top: 2.5rem;
+            }
+        }
+
+        /* Navbar */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.75), transparent);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .navbar-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0.6rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: baseline;
+            gap: 0.35rem;
+        }
+
+        .nav-brand span:nth-child(1) {
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .nav-brand span:nth-child(2) {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            font-size: 0.82rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+            color: var(--text-muted);
+            transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            background: var(--accent-soft);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .navbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Hero */
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+            gap: 2rem;
+            margin-top: 1.75rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(22, 101, 52, 0.24);
+            color: #bbf7d0;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 3.4vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            max-width: 40rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 0.55rem 1.1rem;
+            font-size: 0.86rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-strong), #7c3aed);
+            color: white;
+            box-shadow: 0 12px 30px rgba(79, 70, 229, 0.55);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 38px rgba(79, 70, 229, 0.75);
+        }
+
+        .btn-outline {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(148, 163, 184, 0.5);
+            color: var(--text-muted);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--text);
+            background: rgba(15, 23, 42, 1);
+            transform: translateY(-1px);
+        }
+
+        .hero-right {
+            justify-self: center;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .hero-card {
+            border-radius: var(--radius-2xl);
+            background: radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.1), transparent 50%),
+                        radial-gradient(circle at 100% 100%, rgba(244, 114, 182, 0.12), transparent 52%),
+                        var(--card);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: var(--shadow-soft);
+            padding: 1.4rem 1.2rem 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 25% 25%, #f97316, #1e293b);
+            border: 2px solid rgba(248, 250, 252, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #e5e7eb;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-card-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.8rem 0;
+        }
+
+        .pill {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.85);
+            color: var(--text-muted);
+        }
+
+        .hero-chip {
+            position: absolute;
+            right: 1.2rem;
+            top: 1.2rem;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(45, 212, 191, 0.16);
+            border: 1px solid rgba(45, 212, 191, 0.5);
+            color: #a5f3fc;
+        }
+
+        .hero-footer {
+            border-top: 1px dashed rgba(148, 163, 184, 0.35);
+            margin-top: 0.9rem;
+            padding-top: 0.7rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+
+        section {
+            margin-top: 3rem;
+        }
+
+        .section-heading {
+            font-size: 1.1rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-intro {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 38rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            border-radius: var(--radius-xl);
+            background: var(--card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.25rem 1.3rem;
+        }
+
+        /* About */
+
+        .about-text {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .about-text strong {
+            color: var(--text);
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .skills-category-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .skills-list span {
+            font-size: 0.78rem;
+            padding: 0.22rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            white-space: nowrap;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-tag {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-desc {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+        }
+
+        .project-meta span {
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.7rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience & Education */
+
+        .timeline {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 12px minmax(0, 1fr);
+            gap: 0.75rem;
+        }
+
+        .timeline-marker {
+            position: relative;
+        }
+
+        .timeline-marker::before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 4px;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        .timeline-marker::after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 14px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background: rgba(148, 163, 184, 0.4);
+        }
+
+        .timeline-item:last-child .timeline-marker::after {
+            display: none;
+        }
+
+        .timeline-content {
+            padding-bottom: 0.75rem;
+        }
+
+        .timeline-role {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0.25rem 0;
+        }
+
+        .timeline-detail {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Certifications */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .cert-link {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        .cert-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+
+        /* Contact */
+
+        .contact-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-main {
+            font-size: 0.9rem;
+        }
+
+        .contact-main strong {
+            color: var(--text);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="nav-brand">
+                <span>Portfolio</span>
+                <span>Deepak Chand</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-      <div class="container">
-        <ul>
-          <li>
-            <a href="#about" onclick="highlightHeading('about-heading')">About</a>
-          </li>
-          <li>
-            <a href="#skills" onclick="highlightHeading('skills-heading')">Skills</a>
-          </li>
-          <li>
-            <a href="#projects" onclick="highlightHeading('projects-heading')">Projects</a>
-          </li>
-          <li>
-            <a href="#experience" onclick="highlightHeading('experience-heading')">Experience</a>
-          </li>
-          <li>
-            <a href="#education" onclick="highlightHeading('education-heading')">Education</a>
-          </li>
-          <li>
-            <a href="#contact" onclick="highlightHeading('contact-heading')">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <main class="page">
+        <!-- Hero -->
+        <section class="hero" id="top">
+            <div class="hero-left">
+                <div class="hero-tag">
+                    Senior Software Developer · Team Lead
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span>Deepak Chand</span>.
+                </h1>
+                <p class="hero-subtitle">
+                    Senior Software Developer & Team Lead from the friendly islands of Fiji with over 11 years of experience.
+                    I specialise in building scalable web applications with <strong>.NET / ASP.NET Core</strong> and
+                    robust back-office tools for real-world businesses. I lead by example, focus on clean architecture,
+                    and enjoy mentoring developers into confident leaders.
+                </p>
+                <div class="hero-meta">
+                    <span>🌏 Based in Fiji</span>
+                    <span>💼 11+ years experience</span>
+                    <span>☁️ .NET · Azure · SQL</span>
+                </div>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="mailto:deepakchand747@outlook.com">
+                        📩 Email Me
+                    </a>
+                    <a class="btn btn-outline" href="https://www.linkedin.com/in/deepak-chand-072a93111" target="_blank" rel="noopener noreferrer">
+                        🔗 View LinkedIn
+                    </a>
+                    <!-- Optional: point to your CV PDF if you add it -->
+                    <!-- <a class="btn btn-outline" href="cv-deepak-chand.pdf" target="_blank" rel="noopener noreferrer">
+                        📄 Download CV
+                    </a> -->
+                </div>
+            </div>
 
-    <img
-      src="images/spaceship.svg"
-      alt="Spaceship"
-      class="spaceship inverted-image flip-vertical"
-      id="spaceship"
-    />
+            <aside class="hero-right">
+                <div class="hero-card">
+                    <div class="hero-chip">Open to NZ / AU / Remote</div>
+                    <div class="hero-avatar">DC</div>
+                    <div class="hero-card-title">Senior Software Developer & Team Lead</div>
+                    <div class="hero-card-subtitle">Standss (South Pacific) Limited</div>
 
-    <section id="about" onshow="highlightHeading('about-heading')">
-      <div class="container">
-        <h2 id="about-heading">About Me</h2>
-        <p>
-          Hello! I'm Deepak, from the friendly islands of Fiji. I work as a
-          Senior Software Developer and Team Lead with over 11 years of
-          experience in software development. I am passionate about building
-          scalable web applications using ASP.NET Core and desktop applications.
-          I firmly believe in leading by example. 
-          This approach not only ensures excellence but also helps
-          nurture individuals into great leaders.
-        </p>
-      </div>
-    </section>
+                    <div class="hero-pill-row">
+                        <span class="pill">ASP.NET Core & Web API</span>
+                        <span class="pill">Blazor</span>
+                        <span class="pill">Entity Framework</span>
+                        <span class="pill">Azure App Service</span>
+                    </div>
 
-    <section id="skills">
-      <div class="container">
-        <h2 id="skills-heading">Skills</h2>
+                    <div class="hero-footer">
+                        Building and maintaining production-grade systems used by customers worldwide,
+                        from email productivity tools to line-of-business web applications.
+                    </div>
+                </div>
+            </aside>
+        </section>
 
-        <div style="margin-left: 6%">
-          <div class="skillsCard">
-            <h3><u>Programming Languages:</u></h3>
-            <ul>
-              <li>C#</li>
-              <li>VB.Net</li>
-              <li>VBA</li>
-              <li>SQL</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-            </ul>
-          </div>
-          <div class="skillsCard">
-            <h3><u>Frameworks and Libraries:</u></h3>
-            <ul>
-              <li>ASP.NET Core & Web Api</li>
-              <li>ASP.NET MVC 5</li>
-              <li>Entity Framework</li>
-              <li>Bootstrap</li>
-              <li>Blazor</li>
-              <li>React</li>
-              <li>jQuery</li>
-            </ul>
-          </div>
+        <!-- About -->
+        <section id="about">
+            <div class="section-heading">About</div>
+            <div class="section-title">About Me</div>
+            <div class="card">
+                <p class="about-text">
+                    Hello! I'm <strong>Deepak</strong>, a Senior Software Developer & Team Lead based in Fiji.
+                    For over a decade, I've been designing, developing, and maintaining software solutions ranging from
+                    <strong>desktop applications</strong> to <strong>cloud-hosted web applications</strong> used by
+                    customers across different regions.
+                </p>
+                <br />
+                <p class="about-text">
+                    I enjoy working end-to-end: understanding business needs, designing clean solutions,
+                    implementing them with modern .NET and Azure technologies, and collaborating with teams to ship
+                    reliable software. I believe in leading by example—writing maintainable code,
+                    practising good engineering standards, and helping others grow in the process.
+                </p>
+            </div>
+        </section>
 
-          <div class="skillsCard">
-            <h3><u>Backend Development:</u></h3>
-            <ul>
-              <li>RESTful API design & development</li>
-              <li>ASP.NET Core Web Api</li>
-              <li>Authentication & Authorization</li>
-              <li>
-                Database management (e.g., SQL Server, Azure SQL Server, SQLite,
-                Ms Access)
-              </li>
-            </ul>
-          </div>
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-heading">Skills</div>
+            <div class="section-title">Technical Skills</div>
+            <p class="section-intro">
+                A selection of the technologies and tools I work with regularly. More details are available on request.
+            </p>
+            <div class="skills-grid">
+                <div class="card">
+                    <div class="skills-category-title">Programming Languages</div>
+                    <div class="skills-list">
+                        <span>C#</span>
+                        <span>VB.NET</span>
+                        <span>VBA</span>
+                        <span>SQL</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
 
-          <div class="skillsCard">
-            <h3><u>Azure Technologies:</u></h3>
-            <ul>
-              <li>Azure App Service plus Web App Management</li>
-              <li>Azure SQL Database Management</li>
-              <li>Azure Functions</li>
-              <li>Azure Virtual Machines</li>
-              <li>Azure Blob Storage etc...</li>
-            </ul>
-          </div>
-        </div>
-        <a href="skills.html" style="float: right; padding: 1.5%"
-          >Click to view more skills>>></a
-        >
-      </div>
-    </section>
+                <div class="card">
+                    <div class="skills-category-title">Frameworks & Libraries</div>
+                    <div class="skills-list">
+                        <span>ASP.NET Core & Web API</span>
+                        <span>ASP.NET MVC 5</span>
+                        <span>Entity Framework</span>
+                        <span>Blazor</span>
+                        <span>React</span>
+                        <span>Bootstrap</span>
+                        <span>jQuery</span>
+                    </div>
+                </div>
 
-    <section id="projects">
-      <div class="container" style="margin-left: 10%">
-        <h2 id="projects-heading">Projects</h2>
-        <p>Please note that details available on the projects upon request. Some of the technologies used are shown below as a slideshow but note that this is just a sneak peak:</p>
+                <div class="card">
+                    <div class="skills-category-title">Backend & Architecture</div>
+                    <div class="skills-list">
+                        <span>RESTful API Design</span>
+                        <span>Authentication & Authorization</span>
+                        <span>Database Design & Management</span>
+                        <span>SQL Server / Azure SQL</span>
+                        <span>SQLite</span>
+                        <span>MS Access</span>
+                    </div>
+                </div>
 
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <img src="images/aspnet-core.png" style="width: 100%" />
-            <div class="text">Project 1</div>
-          </div>
+                <div class="card">
+                    <div class="skills-category-title">Azure & Cloud</div>
+                    <div class="skills-list">
+                        <span>Azure App Service</span>
+                        <span>Azure SQL Database</span>
+                        <span>Azure Functions</span>
+                        <span>Azure Virtual Machines</span>
+                        <span>Azure Blob Storage</span>
+                        <span>General Azure resource management</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-          <div class="mySlides fade">
-            <img src="images/aspnet-mvc.jpg" style="width: 100%" />
-            <div class="text">Project 2</div>
-          </div>
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-heading">Projects</div>
+            <div class="section-title">Selected Work</div>
+            <p class="section-intro">
+                Some examples of the types of projects and technologies I've worked with. Specific project details
+                and code samples can be shared on request.
+            </p>
+            <div class="projects-grid">
+                <article class="card project-card">
+                    <div class="project-tag">Productivity / Web</div>
+                    <h3 class="project-title">Email Productivity & Tracking Solutions</h3>
+                    <p class="project-desc">
+                        Involved in building and maintaining email productivity tools and web-based tracking systems.
+                        Focus on performance, reliability, and seamless integration with existing customer workflows.
+                    </p>
+                    <div class="project-meta">
+                        <span>ASP.NET Core</span>
+                        <span>Web API</span>
+                        <span>Entity Framework</span>
+                        <span>SQL Server</span>
+                        <span>Azure App Service</span>
+                    </div>
+                </article>
 
-          <div class="mySlides fade">
-            <img src="images/nunit.jpg" style="width: 100%" />
-            <div class="text">Project 3</div>
-          </div>
+                <article class="card project-card">
+                    <div class="project-tag">Business Applications</div>
+                    <h3 class="project-title">Line-of-Business Web Applications</h3>
+                    <p class="project-desc">
+                        Designed and implemented internal tools and dashboards to support operations and reporting.
+                        Emphasis on clean UI, maintainable architecture, and role-based access control.
+                    </p>
+                    <div class="project-meta">
+                        <span>ASP.NET MVC</span>
+                        <span>Blazor</span>
+                        <span>Bootstrap</span>
+                        <span>Authentication & Authorization</span>
+                    </div>
+                </article>
 
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
+                <article class="card project-card">
+                    <div class="project-tag">Desktop & Legacy Modernisation</div>
+                    <h3 class="project-title">Desktop Applications & Migration</h3>
+                    <p class="project-desc">
+                        Developed and maintained desktop applications and helped modernise legacy components,
+                        gradually moving functionality towards web and cloud-friendly architectures.
+                    </p>
+                    <div class="project-meta">
+                        <span>VB.NET</span>
+                        <span>C#</span>
+                        <span>WinForms / WPF</span>
+                        <span>SQL Server</span>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <br />
+        <!-- Experience -->
+        <section id="experience">
+            <div class="section-heading">Experience</div>
+            <div class="section-title">Professional Experience</div>
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">Senior Software Developer Team Lead</div>
+                            <div class="timeline-company">Standss (South Pacific) Limited</div>
+                            <div class="timeline-meta">Nov 2017 – Present · 7+ years</div>
+                            <div class="timeline-detail">
+                                Leading development of .NET-based products, mentoring developers, contributing to architecture,
+                                and delivering production-ready features on time.
+                            </div>
+                        </div>
+                    </div>
 
-        <div style="text-align: center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-      </div>
-    </section>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">Senior Software Developer</div>
+                            <div class="timeline-company">Standss (South Pacific) Limited</div>
+                            <div class="timeline-meta">Jan 2015 – Oct 2017 · 2 years 10 months</div>
+                        </div>
+                    </div>
 
-    <section id="experience">
-      <div class="container">
-        <h2 id="experience-heading">Experience</h2>
-        <!-- <p>Coming soon: my professional experience and achievements. -->
-        <h3><u>Standss (South Pacific) Limited - (11 years+):</u></h3>
-        <div class="card">
-          <h4>Senior Software Developer Team Lead</h4>
-          <p>Nov 2017 - Present: 7 yrs 2 months</p>
-        </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">Software Developer</div>
+                            <div class="timeline-company">Standss (South Pacific) Limited</div>
+                            <div class="timeline-meta">Jan 2014 – Dec 2014 · 1 year</div>
+                        </div>
+                    </div>
 
-        <div class="card">
-          <h4>Senior Software Developer</h4>
-          <p>Jan 2015 - Oct 2017 · 2 yrs 10 months</p>
-        </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">Graduate Programmer / Developer</div>
+                            <div class="timeline-company">Standss (South Pacific) Limited</div>
+                            <div class="timeline-meta">Jul 2013 – Dec 2013 · 6 months</div>
+                        </div>
+                    </div>
 
-        <div class="card">
-          <h4>Software Developer</h4>
-          <p>Jan 2014 - Dec 2014 · 1 yr</p>
-        </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">Intern Project Officer</div>
+                            <div class="timeline-company">Pacific Financial Inclusion Programme (PFIP, UNDP)</div>
+                            <div class="timeline-meta">Dec 2012 – Jul 2013 · 8 months</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-          <h4>Graduate Programmer/Developer</h4>
-          <p>Jul 2013 - Dec 2013 · 6 months</p>
-        </div>
+        <!-- Education -->
+        <section id="education">
+            <div class="section-heading">Education</div>
+            <div class="section-title">Education & Training</div>
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">Bachelor of Science in Computing Science & Information Systems</div>
+                            <div class="timeline-company">University of the South Pacific</div>
+                            <div class="timeline-meta">Graduated 2013</div>
+                        </div>
+                    </div>
 
-        <div>
-          <h3>
-            <u>Pacific Financial Inclusion Programme (PFIP in UNDP) - (8 months):</u>
-          </h3>
-        </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-role">IELTS – General Training</div>
+                            <div class="timeline-meta">Certified · Proficient in English communication</div>
+                            <div class="timeline-detail">
+                                Further details available on request.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-          <h4>Intern Project Officer</h4>
-          <p>Dec 2012 - Jul 2013 · 8 months</p>
-        </div>
-      </div>
-    </section>
+        <!-- Certifications -->
+        <section id="certifications">
+            <div class="section-heading">Certifications</div>
+            <div class="section-title">Professional Certifications & Badges</div>
+            <div class="cert-grid">
+                <div class="card">
+                    <div class="cert-item-title">Professional Scrum Product Owner I (PSPO I)</div>
+                    <a class="cert-link" href="https://www.scrum.org/certification-list" target="_blank" rel="noopener noreferrer">
+                        View on scrum.org (use email: deepakchand747@outlook.com)
+                    </a>
+                </div>
 
-    <section id="education">
-      <div class="container">
-        <h2 id="education-heading">Education</h2>
-        <h3>
-          <u>Bachelor of Science in Computing Science & Information Systems:</u>
-        </h3>
-        <ul>
-          <li>University of the South Pacific</li>
-          <li>Year of Graduation: 2013</li>
-        </ul>
+                <div class="card">
+                    <div class="cert-item-title">Professional Scrum Master I (PSM I)</div>
+                    <a class="cert-link" href="https://www.scrum.org/certification-list" target="_blank" rel="noopener noreferrer">
+                        View on scrum.org (use email: deepakchand747@outlook.com)
+                    </a>
+                </div>
 
-        <h3><u>IELTS General Training Certified:</u></h3>
-        <p>
-          Proficiency in English communication. (Details available upon request)
-        </p>
+                <div class="card">
+                    <div class="cert-item-title">Microsoft Applied Skills</div>
+                    <a class="cert-link" href="https://learn.microsoft.com/en-us/users/deepakchand-0458/credentials/bd0d343a482be54b" target="_blank" rel="noopener noreferrer">
+                        Develop an ASP.NET Core web app that consumes an API
+                    </a>
+                </div>
 
-        <h3><u>Certifications:</u></h3>
-        <ul>
-          <li>
-            <a href="https://www.scrum.org/certificates/787494" target="_blank">Professional Scrum Product Owner I</a>
-          </li>
-          <li>
-            <a href="https://www.scrum.org/certificates/696189" target="_blank">Professional Scrum Master I</a>
-          </li>
-          <li class="no-bullet">
-            <em
-              >Note: Use the email address:
-              <a href="mailto:deepakchand747@outlook.com">deepakchand747@outlook.com</a>
-              to verify the scrum.org credentials.</em>
-          </li>
-        </ul>
+                <div class="card">
+                    <div class="cert-item-title">Other Certificates & Badges</div>
+                    <a class="cert-link" href="https://www.credly.com/users/deepak-chand.bac19464" target="_blank" rel="noopener noreferrer">
+                        View on Credly Profile
+                    </a>
+                    <br />
+                    <a class="cert-link" href="https://www.linkedin.com/in/deepak-chand-072a93111" target="_blank" rel="noopener noreferrer">
+                        View on LinkedIn Profile
+                    </a>
+                    <div class="cert-note">
+                        Includes additional badges and learning achievements from various platforms.
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h3><u>Microsoft Applied Skills:</u></h3>
-        <ul>
-          <li>
-            <a
-              href="https://learn.microsoft.com/api/credentials/share/en-us/DeepakChand-0458/BD0D343A482BE54B?sharingId=AE77C877A16777A"
-              target="_blank">Develop an ASP.NET Core web app that consumes an API</a>
-          </li>
-        </ul>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-heading">Contact</div>
+            <div class="section-title">Contact Me</div>
+            <div class="card contact-card">
+                <div class="contact-main">
+                    <p>
+                        I'm open to discussing <strong>senior developer</strong>, <strong>technical lead</strong>,
+                        or <strong>.NET / Azure engineer</strong><!-- opportunities, especially in
+                        Fiji, New Zealand, Australia, or remote roles-->.
+                    </p>
+                    <br />
+                    <p>
+                        <strong>Email:</strong>
+                        <a href="mailto:deepakchand747@outlook.com">deepakchand747@outlook.com</a>
+                    </p>
+                </div>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="mailto:deepakchand747@outlook.com">
+                        📩 Send an Email
+                    </a>
+                    <a class="btn btn-outline" href="https://www.linkedin.com/in/deepak-chand-072a93111" target="_blank" rel="noopener noreferrer">
+                        🔗 Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <h3><u>Other Certificates and badges:</u></h3>
-        <ul>
-          <li>
-            <a
-              href="https://www.credly.com/users/deepak-chand.bac19464"
-              target="_blank">View on Credly Profile</a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/deepak-chand-072a93111"
-              target="_blank">View on LinkedIn Profile</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container last-container">
-        <h2 id="contact-heading">Contact Me</h2>
-        <p>
-          Email:
-          <a href="mailto:deepakchand747@outlook.com">deepakchand747@outlook.com</a>
-          &nbsp;|&nbsp;
-          <a href="https://www.linkedin.com/in/deepak-chand-072a93111">LinkedIn Profile</a>
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Deepak Chand</p>
-      </div>
-    </footer>
-
-    <script src="js/slideshow.js"></script>
-    <script src="js/spaceship.js"></script>
-    <script src="js/general.js"></script>
-    <script>
-      window.onload = function () {
-        if (window.location.hash) {
-          var fullhashtext = window.location.hash;
-          var headingId = fullhashtext.substring(1);
-          highlightHeading(headingId);
-        }
-      };
-    </script>
-  </body>
+        <footer>
+            © 2025 · Deepak Chand · Senior Software Developer & Team Lead
+        </footer>
+    </main>
+</body>
 </html>
