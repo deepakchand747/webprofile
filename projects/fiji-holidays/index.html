@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiji Holidays</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">Mini App</p>
+      <h1>Fiji Public Holidays</h1>
+      <p class="subtitle">
+        View Fiji public holidays, see the next upcoming holiday, and track the countdown.
+      </p>
+    </header>
+
+    <section class="top-grid">
+      <div class="card">
+        <h2>Today</h2>
+        <p id="todayDate" class="big-text">Loading...</p>
+        <p id="holidayStatus" class="status-text"></p>
+      </div>
+      
+      <div class="card highlight-card">
+        <h2>Next Holiday</h2>
+        <p id="nextHolidayName" class="big-text">Loading...</p>
+        <p id="nextHolidayDate">Loading...</p>
+        <p id="countdown" class="countdown"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-header">
+        <h2>All Holidays</h2>
+        <span class="badge">2026</span>
+      </div>
+
+      <div id="holidayList" class="holiday-list">
+      </div>
+    </section>
+  </div>
+
+  <script src="holidays.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
