@@ -270,8 +270,9 @@
         border: none;
         /*font: inherit;*/
         cursor: pointer;
-        padding: 0.5rem 0.75rem;
+        /*padding: 0.5rem 0.75rem;*/
         border-radius: 8px;
+        font-size: 0.95rem;
         }
 
         .site-nav a:hover,
