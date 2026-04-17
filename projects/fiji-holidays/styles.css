@@ -147,3 +147,16 @@ body {
   }
 }
 
+   .footercontainer {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+.footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
