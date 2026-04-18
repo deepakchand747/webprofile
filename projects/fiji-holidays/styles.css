@@ -160,3 +160,7 @@ body {
       font-size: 0.95rem;
     }
 
+ :root{
+  --line: rgba(148, 163, 184, 0.18);
+ }   
+
