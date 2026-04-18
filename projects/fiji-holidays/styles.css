@@ -12,7 +12,7 @@ body {
 .container {
   width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 40px 0 60px;
+  /*padding: 40px 0 60px;*/ /*Bottom footer has too much gap as a result of this */
 }
 
 .hero {
