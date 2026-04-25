@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NZ Opportunities | Deepak Chand</title>
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --border: #e2e8f0;
+      --soft-blue: #eff6ff;
+      --dark: #0f172a;
+      --dark-card: #1e293b;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #ffffff !important;
+      padding: 9px 14px;
+      border-radius: 999px;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+    }
+
+    .hero {
+      padding: 90px 0 76px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--soft-blue);
+      color: var(--primary-dark);
+      border: 1px solid #bfdbfe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      margin-bottom: 22px;
+    }
+
+    .hero-text {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--dark);
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      max-width: 820px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .dark-section {
+      background: var(--dark);
+      color: #ffffff;
+    }
+
+    .dark-section .section-heading p {
+      color: #cbd5e1;
+    }
+
+    .dark-section .section-kicker {
+      color: #93c5fd;
+    }
+
+    .dark-section .card {
+      background: var(--dark-card);
+      border-color: #334155;
+    }
+
+    .dark-section .card p,
+    .dark-section .card ul {
+      color: #cbd5e1;
+    }
+
+    .role-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card::after {
+      content: "";
+      position: absolute;
+      right: -35px;
+      top: -35px;
+      width: 100px;
+      height: 100px;
+      background: rgba(37, 99, 235, 0.12);
+      border-radius: 50%;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .evidence-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .evidence-item strong {
+      color: var(--text);
+    }
+
+    .evidence-item span {
+      color: var(--muted);
+    }
+
+    .project-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-box {
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 34%),
+        #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 42px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 26px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .evidence-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .hero {
+        padding: 70px 0 56px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Portfolio Deepak Chand</a>
+
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#education">Education</a>
+        <a href="index.html#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">🇳🇿 Open to NZ Opportunities</div>
+
+          <h1>Senior .NET / Azure Developer ready for New Zealand roles.</h1>
+
+          <p class="hero-text">
+            I am a Fiji-based Senior Software Developer & Team Lead with over 12 years of experience
+            building scalable web applications, APIs, integrations, and production-grade business systems.
+          </p>
+
+          <p class="hero-text">
+            I am open to Software Developer, Senior .NET Developer, Software Engineer, Developer Programmer,
+            Azure Developer, and Technical Lead opportunities in New Zealand with an Immigration New Zealand
+            Accredited Employer.
+          </p>
+
+          <div class="hero-actions">
+            <a href="assets/Deepak-Chand-CV.pdf" class="btn btn-primary">Download NZ-Style CV</a>
+            <a href="index.html#projects" class="btn btn-outline">View Portfolio</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="profile-circle">DC</div>
+          <h2>Deepak Chand</h2>
+          <p>Senior Software Developer & Team Lead</p>
+
+          <div class="pill-list">
+            <span class="pill">Based in Fiji</span>
+            <span class="pill">12+ years experience</span>
+            <span class="pill">.NET</span>
+            <span class="pill">ASP.NET Core</span>
+            <span class="pill">Azure</span>
+            <span class="pill">SQL Server</span>
+            <span class="pill">Blazor</span>
+            <span class="pill">Team Lead</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="nz-readiness">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">NZ Migration Readiness</div>
+          <h2>Prepared for a serious New Zealand hiring process.</h2>
+          <p>
+            This page is designed to help NZ employers quickly understand my technical fit,
+            role alignment, relocation readiness, and ability to provide supporting documents
+            during the recruitment process.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card role-card">
+            <h3>Target NZ Roles</h3>
+            <ul>
+              <li>Senior .NET Developer</li>
+              <li>Software Engineer</li>
+              <li>Developer Programmer</li>
+              <li>Azure Developer</li>
+              <li>API Integration Developer</li>
+              <li>Technical Lead</li>
+            </ul>
+          </div>
+
+          <div class="card role-card">
+            <h3>Technical Alignment</h3>
+            <ul>
+              <li>Business web applications</li>
+              <li>REST API development</li>
+              <li>Authentication and authorization</li>
+              <li>SQL Server database design</li>
+              <li>Azure-hosted applications</li>
+              <li>Production support</li>
+            </ul>
+          </div>
+
+          <div class="card role-card">
+            <h3>Migration Profile</h3>
+            <ul>
+              <li>Based in Fiji</li>
+              <li>Open to NZ relocation</li>
+              <li>IELTS General Training completed</li>
+              <li>University degree completed</li>
+              <li>PSM I and PSPO I certified</li>
+              <li>Available for remote interviews</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="strengths">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">What I Bring</div>
+          <h2>Strong business + technical delivery experience.</h2>
+          <p>
+            My value is not only writing code. I work across requirements, architecture,
+            development, deployment, production support, mentoring, and continuous improvement.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Backend & Web Development</h3>
+            <ul>
+              <li>C#, VB.NET, SQL</li>
+              <li>ASP.NET Core & Web API</li>
+              <li>ASP.NET MVC 5</li>
+              <li>Entity Framework</li>
+              <li>Blazor applications</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Cloud & Data</h3>
+            <ul>
+              <li>Azure App Service</li>
+              <li>Azure SQL Database</li>
+              <li>Azure Functions</li>
+              <li>Azure Blob Storage</li>
+              <li>SQL Server / Azure SQL</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Leadership & Delivery</h3>
+            <ul>
+              <li>Team Lead experience</li>
+              <li>Mentoring developers</li>
+              <li>Clean architecture focus</li>
+              <li>Scrum and product mindset</li>
+              <li>End-to-end ownership</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Evidence Ready</div>
+          <h2>Documents and proof can be provided when required.</h2>
+          <p>
+            For New Zealand opportunities, I understand that employers and migration processes
+            may require clear evidence of experience, education, English ability, identity,
+            and professional background.
+          </p>
+        </div>
+
+        <div class="evidence-list">
+          <div class="evidence-item">
+            <strong>Work Experience</strong>
+            <span>Employment history, role details, project experience, and professional references available on request.</span>
+          </div>
+
+          <div class="evidence-item">
+            <strong>Education</strong>
+            <span>Bachelor of Science in Computing Science & Information Systems from the University of the South Pacific.</span>
+          </div>
+
+          <div class="evidence-item">
+            <strong>English</strong>
+            <span>IELTS General Training completed. Further details available on request.</span>
+          </div>
+
+          <div class="evidence-item">
+            <strong>Certifications</strong>
+            <span>Professional Scrum Master I, Professional Scrum Product Owner I, Microsoft Applied Skills, and additional badges.</span>
+          </div>
+
+          <div class="evidence-item">
+            <strong>Relocation</strong>
+            <span>Open to New Zealand roles with accredited employers and prepared for remote interviews across NZ time zones.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-fit">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Project Fit</div>
+          <h2>Relevant experience for NZ software teams.</h2>
+          <p>
+            These examples show the kind of work I can contribute to in New Zealand:
+            business systems, integrations, cloud-ready applications, and maintainable software.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card project-card">
+            <div class="project-meta">Productivity / Web</div>
+            <h3>Email Productivity & Tracking Solutions</h3>
+            <p>
+              Involved in building and maintaining email productivity tools and tracking systems,
+              with a focus on reliability, performance, and customer workflows.
+            </p>
+            <div class="pill-list">
+              <span class="pill">ASP.NET Core</span>
+              <span class="pill">Web API</span>
+              <span class="pill">SQL Server</span>
+              <span class="pill">Azure App Service</span>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <div class="project-meta">Business Applications</div>
+            <h3>Line-of-Business Web Applications</h3>
+            <p>
+              Designed and supported internal systems, dashboards, and business tools with
+              authentication, reporting, clean UI, and maintainable architecture.
+            </p>
+            <div class="pill-list">
+              <span class="pill">ASP.NET MVC</span>
+              <span class="pill">Blazor</span>
+              <span class="pill">Bootstrap</span>
+              <span class="pill">SQL</span>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <div class="project-meta">Integrations</div>
+            <h3>Salesforce API Integration</h3>
+            <p>
+              Worked on OAuth-based Salesforce integration patterns involving authentication,
+              callbacks, connected apps, list views, contacts, and secure token handling.
+            </p>
+            <div class="pill-list">
+              <span class="pill">OAuth 2.0</span>
+              <span class="pill">Salesforce API</span>
+              <span class="pill">C#</span>
+              <span class="pill">REST</span>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <div class="project-meta">Modernisation</div>
+            <h3>Desktop & Legacy Modernisation</h3>
+            <p>
+              Developed and maintained desktop applications while helping move legacy functionality
+              toward web-based and cloud-friendly architecture.
+            </p>
+            <div class="pill-list">
+              <span class="pill">VB.NET</span>
+              <span class="pill">C#</span>
+              <span class="pill">WinForms</span>
+              <span class="pill">SQL Server</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Open to discussing NZ software opportunities.</h2>
+          <p>
+            I am interested in Senior Developer, Software Engineer, Technical Lead,
+            .NET Developer, Azure Developer, and API Integration roles in New Zealand.
+          </p>
+
+          <div class="hero-actions" style="justify-content: center;">
+            <a href="mailto:deepakchand747@outlook.com" class="btn btn-primary">Email Me</a>
+            <a href="index.html#contact" class="btn btn-outline">Back to Main Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 · Deepak Chand · Senior Software Developer & Team Lead · Fiji · Open to NZ / AU
+  </footer>
+
+</body>
+</html>
