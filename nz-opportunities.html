@@ -97,7 +97,7 @@
     }
 
     .hero {
-      padding: 90px 0 76px;
+      padding: 90px 0 56px;
       background:
         radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 35%),
         linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
@@ -209,6 +209,19 @@
       margin-bottom: 18px;
     }
 
+    .quick-contact {
+      display: grid;
+      gap: 8px;
+      margin: 18px 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .quick-contact a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
     .pill-list {
       display: flex;
       flex-wrap: wrap;
@@ -226,7 +239,6 @@
     }
 
     section {
-      /*padding: 74px 0;*/
       padding: 30px 0;
     }
 
@@ -292,6 +304,68 @@
 
     .card li {
       margin-bottom: 8px;
+    }
+
+    .snapshot {
+      margin-top: -26px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .snapshot-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .snapshot-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .snapshot-header h2 {
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .snapshot-header p {
+      color: var(--muted);
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .snapshot-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .snapshot-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .snapshot-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.45;
     }
 
     .dark-section {
@@ -368,6 +442,32 @@
       margin-bottom: 10px;
     }
 
+    .project-actions {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-small {
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+
+    .availability-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .availability-box p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
     .contact-box {
       background:
         radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 34%),
@@ -403,8 +503,13 @@
     @media (max-width: 900px) {
       .hero-grid,
       .grid-3,
-      .grid-2 {
+      .grid-2,
+      .snapshot-grid {
         grid-template-columns: 1fr;
+      }
+
+      .snapshot-header {
+        flex-direction: column;
       }
 
       .nav-links {
@@ -421,7 +526,12 @@
       }
 
       .hero {
-        padding: 70px 0 56px;
+        padding: 70px 0 46px;
+      }
+
+      .snapshot {
+        margin-top: 0;
+        padding-top: 0;
       }
     }
   </style>
@@ -439,7 +549,7 @@
         <a href="index.html#projects">Projects</a>
         <a href="index.html#experience">Experience</a>
         <a href="index.html#education">Education</a>
-        <a href="index.html#contact" class="nav-cta">Contact</a>
+        <a href="#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
@@ -460,14 +570,13 @@
 
           <p class="hero-text">
             I am open to Software Developer, Senior .NET Developer, Software Engineer, Developer Programmer,
-            Azure Developer, and Technical Lead opportunities in New Zealand with an Immigration New Zealand
-            Accredited Employer.
+            Azure Developer, and Technical Lead opportunities with New Zealand employers, including
+            Immigration New Zealand Accredited Employers.
           </p>
 
           <div class="hero-actions">
-            <!-- <a href="assets/Deepak-Chand-CV.pdf" class="btn btn-primary">Download NZ-Style CV</a> -->
-            <a href="#" class="btn btn-primary" onclick="alert('CV Coming Soon'); return false;">Download NZ-Style CV</a>            
-            <a href="https://www.linkedin.com/in/deepak-chand-072a93111" class="btn btn-outline">View LinkedIn Profile</a>
+            <a href="assets/Deepak-Chand-CV.pdf" class="btn btn-primary">Download NZ-Style CV</a>
+            <a href="https://www.linkedin.com/in/deepak-chand-072a93111" class="btn btn-outline" target="_blank" rel="noopener">View LinkedIn Profile</a>
             <a href="index.html#projects" class="btn btn-outline">View Portfolio</a>
           </div>
         </div>
@@ -477,8 +586,14 @@
           <h2>Deepak Chand</h2>
           <p>Senior Software Developer & Team Lead</p>
 
+          <div class="quick-contact">
+            <div><strong>Email:</strong> <a href="mailto:deepakchand747@outlook.com">deepakchand747@outlook.com</a></div>
+            <div><strong>Location:</strong> Suva, Fiji</div>
+            <div><strong>Relocation:</strong> Open to New Zealand</div>
+            <div><strong>Interviews:</strong> Available remotely</div>
+          </div>
+
           <div class="pill-list">
-            <span class="pill">Based in Fiji</span>
             <span class="pill">12+ years experience</span>
             <span class="pill">.NET</span>
             <span class="pill">ASP.NET Core</span>
@@ -488,6 +603,44 @@
             <span class="pill">Team Lead</span>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="snapshot" id="recruiter-snapshot">
+      <div class="container">
+        <div class="snapshot-box">
+          <div class="snapshot-header">
+            <div>
+              <div class="section-kicker">Recruiter Snapshot</div>
+              <h2>Quick fit summary for NZ employers.</h2>
+              <p>A short overview for recruiters and hiring managers reviewing my profile.</p>
+            </div>
+
+            <a href="assets/Deepak-Chand-CV.pdf" class="btn btn-primary">Download CV</a>
+          </div>
+
+          <div class="snapshot-grid">
+            <div class="snapshot-item">
+              <span>Target Roles</span>
+              <strong>Senior .NET Developer, Software Engineer, Azure Developer, Technical Lead</strong>
+            </div>
+
+            <div class="snapshot-item">
+              <span>Core Stack</span>
+              <strong>C#, ASP.NET Core, Web API, Blazor, SQL Server, Azure</strong>
+            </div>
+
+            <div class="snapshot-item">
+              <span>Experience</span>
+              <strong>12+ years building and supporting production business systems</strong>
+            </div>
+
+            <div class="snapshot-item">
+              <span>Availability</span>
+              <strong>Open to remote interviews and relocation discussions for NZ roles</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -519,12 +672,12 @@
           <div class="card role-card">
             <h3>Technical Alignment</h3>
             <ul>
-              <li>Business web applications</li>
+              <li>Business-critical web applications</li>
               <li>REST API development</li>
               <li>Authentication and authorization</li>
               <li>SQL Server database design</li>
               <li>Azure-hosted applications</li>
-              <li>Production support</li>
+              <li>Production support and troubleshooting</li>
             </ul>
           </div>
 
@@ -582,8 +735,8 @@
             <ul>
               <li>Team Lead experience</li>
               <li>Mentoring developers</li>
-              <li>Clean architecture focus</li>
-              <li>Scrum and product mindset</li>
+              <li>Agile and Scrum delivery</li>
+              <li>Business and product mindset</li>
               <li>End-to-end ownership</li>
             </ul>
           </div>
@@ -658,6 +811,9 @@
               <span class="pill">Azure App Service</span>
               <span class="pill">Azure SQL Database</span>
             </div>
+            <div class="project-actions">
+              <a href="index.html#projects" class="btn btn-outline btn-small">View Related Projects</a>
+            </div>
           </div>
 
           <div class="card project-card">
@@ -672,6 +828,9 @@
               <span class="pill">Blazor</span>
               <span class="pill">Bootstrap</span>
               <span class="pill">SQL</span>
+            </div>
+            <div class="project-actions">
+              <a href="index.html#projects" class="btn btn-outline btn-small">View Related Projects</a>
             </div>
           </div>
 
@@ -688,6 +847,9 @@
               <span class="pill">C#</span>
               <span class="pill">REST</span>
             </div>
+            <div class="project-actions">
+              <a href="index.html#projects" class="btn btn-outline btn-small">View Related Projects</a>
+            </div>
           </div>
 
           <div class="card project-card">
@@ -703,7 +865,23 @@
               <span class="pill">WinForms</span>
               <span class="pill">SQL Server</span>
             </div>
+            <div class="project-actions">
+              <a href="index.html#projects" class="btn btn-outline btn-small">View Related Projects</a>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="availability">
+      <div class="container">
+        <div class="availability-box">
+          <div class="section-kicker">Availability</div>
+          <h2>Ready for remote interviews and NZ role discussions.</h2>
+          <p>
+            I am available for initial remote interviews and open to discussing notice period,
+            relocation timeline, role expectations, and supporting documents during the hiring process.
+          </p>
         </div>
       </div>
     </section>
@@ -719,9 +897,9 @@
 
           <div class="hero-actions" style="justify-content: center;">
             <a href="mailto:deepakchand747@outlook.com" class="btn btn-primary">Email Me</a>
-            <a href="#" class="btn btn-outline" onclick="alert('CV Coming Soon'); return false;">Download NZ-Style CV</a>
-            <a href="https://www.linkedin.com/in/deepak-chand-072a93111" class="btn btn-outline">View LinkedIn Profile</a>
-            <a href="index.html#contact" class="btn btn-outline">Back to Main Portfolio</a>            
+            <a href="assets/Deepak-Chand-CV.pdf" class="btn btn-outline">Download NZ-Style CV</a>
+            <a href="https://www.linkedin.com/in/deepak-chand-072a93111" class="btn btn-outline" target="_blank" rel="noopener">View LinkedIn Profile</a>
+            <a href="index.html#contact" class="btn btn-outline">Back to Main Portfolio</a>
           </div>
         </div>
       </div>
@@ -733,10 +911,5 @@
     © 2026 · Deepak Chand · Senior Software Developer & Team Lead · Fiji · Open to NZ
   </footer>
 
-  <script>
-function myFunction() {
-alert("CV Coming Soon!!!");
-}
-</script>
 </body>
 </html>
