@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Australia Opportunities | Deepak Chand</title>
+    <meta name="description" content="Deepak Chand - Senior .NET / Azure Developer and Team Lead based in Fiji, open to Australian software development, cloud, integration, and technical leadership opportunities." />
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #111827;
+            --card: rgba(15, 23, 42, 0.86);
+            --card-soft: rgba(30, 41, 59, 0.9);
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --line: rgba(148, 163, 184, 0.25);
+            --primary: #38bdf8;
+            --primary-soft: rgba(56, 189, 248, 0.12);
+            --accent: #f59e0b;
+            --accent-soft: rgba(245, 158, 11, 0.14);
+            --success: #22c55e;
+            --shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 30%),
+                radial-gradient(circle at top right, rgba(245, 158, 11, 0.16), transparent 32%),
+                linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(100% - 32px, var(--max-width));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(18px);
+            background: rgba(2, 6, 23, 0.76);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #020617;
+            font-weight: 900;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.24);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            padding: 86px 0 56px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.85fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            background: var(--primary-soft);
+            color: #bae6fd;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.35rem, 6vw, 5rem);
+            line-height: 0.98;
+            letter-spacing: -0.065em;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 760px;
+        }
+
+        .hero strong {
+            color: var(--text);
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+            border: 1px solid var(--line);
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56, 189, 248, 0.6);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #22d3ee);
+            color: #020617;
+            border-color: transparent;
+        }
+
+        .btn-secondary {
+            background: rgba(15, 23, 42, 0.72);
+            color: var(--text);
+        }
+
+        .profile-card {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            padding: 26px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            inset: -80px -80px auto auto;
+            width: 180px;
+            height: 180px;
+            background: rgba(245, 158, 11, 0.18);
+            border-radius: 999px;
+            filter: blur(12px);
+        }
+
+        .avatar {
+            width: 74px;
+            height: 74px;
+            border-radius: 24px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #020617;
+            font-weight: 900;
+            font-size: 1.35rem;
+            margin-bottom: 18px;
+        }
+
+        .profile-card h2 {
+            font-size: 1.45rem;
+            margin-bottom: 4px;
+        }
+
+        .profile-card p {
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .profile-list {
+            margin-top: 22px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .profile-list div {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .profile-list span:last-child {
+            color: var(--text);
+            text-align: right;
+            font-weight: 700;
+        }
+
+        section {
+            padding: 58px 0;
+        }
+
+        .section-head {
+            margin-bottom: 26px;
+            max-width: 760px;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.75rem);
+            letter-spacing: -0.04em;
+            line-height: 1.08;
+            margin-bottom: 12px;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 1.02rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+        }
+
+        .card h3 {
+            font-size: 1.14rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .card ul {
+            list-style: none;
+            display: grid;
+            gap: 9px;
+            margin-top: 8px;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .stat {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px;
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.35rem;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(245, 158, 11, 0.12));
+            border: 1px solid rgba(56, 189, 248, 0.26);
+        }
+
+        .role-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 210px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .pill {
+            display: inline-flex;
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.12);
+            color: #cbd5e1;
+            font-size: 0.82rem;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            font-weight: 700;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 14px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 18px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.68);
+        }
+
+        .timeline-item strong {
+            color: var(--accent);
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        .cta {
+            padding: 34px;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(245, 158, 11, 0.16));
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            display: grid;
+            grid-template-columns: 1.2fr auto;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .cta p {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        footer {
+            padding: 36px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 880px) {
+            .hero-grid,
+            .grid-2,
+            .grid-3,
+            .stat-row,
+            .cta {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+
+            .hero {
+                padding-top: 54px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <a class="brand" href="index.html" aria-label="Back to portfolio">
+                <span class="brand-mark">DC</span>
+                <span>Deepak Chand</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="nz-opportunities.html">NZ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">Open to Australia Opportunities</div>
+                    <h1>Senior .NET / Azure Developer ready for Australian software teams.</h1>
+                    <p>
+                        I am a Fiji-based <strong>Senior Software Developer & Team Lead</strong> with over 12 years of experience building production-grade web applications, APIs, integrations, cloud-ready systems, and business software.
+                    </p>
+                    <p style="margin-top: 14px;">
+                        I am open to Australian opportunities across <strong>Senior .NET Developer, Software Engineer, Azure Developer, API Integration Developer, Developer Programmer, Technical Lead,</strong> and cloud-focused application roles.
+                    </p>
+
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:deepakchand747@outlook.com">Email Me</a>
+                        <a class="btn btn-secondary" href="Deepak-Chand-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+                        <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">View LinkedIn Profile</a>
+                        <a class="btn btn-secondary" href="index.html#projects">View Portfolio</a>
+                    </div>
+                </div>
+
+                <aside class="profile-card" aria-label="Profile summary">
+                    <div class="avatar">DC</div>
+                    <h2>Deepak Chand</h2>
+                    <p>Senior Software Developer & Team Lead</p>
+
+                    <div class="profile-list">
+                        <div><span>Email</span><span>deepakchand747@outlook.com</span></div>
+                        <div><span>Location</span><span>Suva, Fiji</span></div>
+                        <div><span>Relocation</span><span>Open to Australia</span></div>
+                        <div><span>Interviews</span><span>Available remotely</span></div>
+                    </div>
+
+                    <div class="pill-row">
+                        <span class="pill">12+ years</span>
+                        <span class="pill">.NET</span>
+                        <span class="pill">ASP.NET Core</span>
+                        <span class="pill">Azure</span>
+                        <span class="pill">SQL Server</span>
+                        <span class="pill">Team Lead</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-label">Recruiter Snapshot</div>
+                    <h2>Quick fit summary for Australian employers.</h2>
+                    <p>A practical overview for recruiters and hiring managers reviewing my profile for Australian software development and cloud roles.</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card highlight">
+                        <h3>Target Roles</h3>
+                        <p>Senior .NET Developer, Software Engineer, Developer Programmer, Azure Developer, API Integration Developer, Technical Lead.</p>
+                    </div>
+                    <div class="card highlight">
+                        <h3>Core Stack</h3>
+                        <p>C#, ASP.NET Core, Web API, Blazor, Entity Framework, SQL Server, Azure App Service, Azure SQL, Azure Functions.</p>
+                    </div>
+                    <div class="card highlight">
+                        <h3>Experience</h3>
+                        <p>12+ years building, maintaining, supporting, and improving business-critical production systems used by real customers.</p>
+                    </div>
+                    <div class="card highlight">
+                        <h3>Availability</h3>
+                        <p>Open to remote interviews, Australian employer discussions, relocation conversations, and supporting document requests.</p>
+                    </div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat"><strong>12+</strong><span>years software experience</span></div>
+                    <div class="stat"><strong>.NET</strong><span>main technology stack</span></div>
+                    <div class="stat"><strong>Azure</strong><span>cloud application exposure</span></div>
+                    <div class="stat"><strong>Lead</strong><span>mentoring and delivery experience</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-label">Australia Readiness</div>
+                    <h2>Prepared for a serious Australian hiring process.</h2>
+                    <p>This page helps Australian employers quickly understand my technical fit, role alignment, relocation openness, and ability to support recruitment or migration-related documentation when required.</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3>Target Australian Roles</h3>
+                        <ul>
+                            <li>Senior .NET Developer</li>
+                            <li>Software Engineer</li>
+                            <li>Developer Programmer</li>
+                            <li>Azure Developer</li>
+                            <li>API Integration Developer</li>
+                            <li>Technical Lead</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Technical Alignment</h3>
+                        <ul>
+                            <li>Business-critical web applications</li>
+                            <li>REST API design and development</li>
+                            <li>Authentication and authorization</li>
+                            <li>SQL Server database design</li>
+                            <li>Azure-hosted applications</li>
+                            <li>Production support and troubleshooting</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Candidate Profile</h3>
+                        <ul>
+                            <li>Based in Fiji</li>
+                            <li>Open to Australia relocation</li>
+                            <li>IELTS General Training completed</li>
+                            <li>University degree completed</li>
+                            <li>PSM I and PSPO I certified</li>
+                            <li>Available for remote interviews</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-label">What I Bring</div>
+                    <h2>Strong business + technical delivery experience.</h2>
+                    <p>My value is not only writing code. I work across requirements, architecture, development, deployment, support, mentoring, and continuous improvement.</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3>Backend & Web Development</h3>
+                        <ul>
+                            <li>C#, VB.NET, SQL</li>
+                            <li>ASP.NET Core & Web API</li>
+                            <li>ASP.NET MVC 5</li>
+                            <li>Entity Framework</li>
+                            <li>Blazor applications</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Cloud & Data</h3>
+                        <ul>
+                            <li>Azure App Service</li>
+                            <li>Azure SQL Database</li>
+                            <li>Azure Functions</li>
+                            <li>Azure Blob Storage</li>
+                            <li>SQL Server / Azure SQL</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Leadership & Delivery</h3>
+                        <ul>
+                            <li>Team Lead experience</li>
+                            <li>Mentoring developers</li>
+                            <li>Agile and Scrum delivery</li>
+                            <li>Business and product mindset</li>
+                            <li>End-to-end ownership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-label">Role Fit</div>
+                    <h2>Australian roles I am best aligned with.</h2>
+                    <p>These role types match my practical experience in .NET application development, SQL-backed business systems, cloud-hosted applications, integrations, and team delivery.</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card role-card">
+                        <div>
+                            <h3>Senior .NET Developer</h3>
+                            <p>Best fit for product teams, SaaS platforms, business systems, customer-facing portals, internal tools, and API-heavy applications.</p>
+                        </div>
+                        <div class="pill-row">
+                            <span class="pill">C#</span><span class="pill">ASP.NET Core</span><span class="pill">Web API</span>
+                        </div>
+                    </div>
+
+                    <div class="card role-card">
+                        <div>
+                            <h3>Azure Developer</h3>
+                            <p>Suitable for teams building, deploying, and maintaining cloud-hosted applications using Azure App Service, Azure SQL, Functions, and storage services.</p>
+                        </div>
+                        <div class="pill-row">
+                            <span class="pill">Azure</span><span class="pill">App Service</span><span class="pill">Azure SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="card role-card">
+                        <div>
+                            <h3>Technical Lead</h3>
+                            <p>Strong fit for roles needing hands-on development, mentoring, delivery ownership, architecture input, and reliable production support.</p>
+                        </div>
+                        <div class="pill-row">
+                            <span class="pill">Leadership</span><span class="pill">Mentoring</span><span class="pill">Delivery</span>
+                        </div>
+                    </div>
+
+                    <div class="card role-card">
+                        <div>
+                            <h3>API Integration Developer</h3>
+                            <p>Aligned with integration-heavy work involving OAuth, REST APIs, secure token handling, third-party platforms, and backend service coordination.</p>
+                        </div>
+                        <div class="pill-row">
+                            <span class="pill">REST</span><span class="pill">OAuth</span><span class="pill">Integrations</span>
+                        </div>
+                    </div>
+
+                    <div class="card role-card">
+                        <div>
+                            <h3>Developer Programmer</h3>
+                            <p>Good fit for employer-sponsored or skilled migration-aligned roles requiring full software lifecycle experience and practical business application delivery.</p>
+                        </div>
+                        <div class="pill-row">
+                            <span class="pill">SDLC</span><span class="pill">SQL</span><span class="pill">Support</span>
+                        </div>
+                    </div>
+
+                    <div class="card role-card">
+                        <div>
+                            <h3>Software Engineer</h3>
+                            <p>Suitable for teams looking for a hands-on engineer who can design, build, improve, and support maintainable production software.</p>
+                        </div>
+                        <div class="pill-row">
+                            <span class="pill">Design</span><span class="pill">Build</span><span class="pill">Maintain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-label">Evidence Ready</div>
+                    <h2>Documents and proof can be provided when required.</h2>
+                    <p>For Australian opportunities, I understand that employers and migration-related processes may require clear evidence of experience, education, English ability, identity, and professional background.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>Experience</strong>
+                        <p>Employment history, role details, project experience, production system exposure, and professional references available on request.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Education</strong>
+                        <p>Bachelor of Science in Computing Science & Information Systems from the University of the South Pacific.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>English</strong>
+                        <p>IELTS General Training completed. Further details available on request.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Certifications</strong>
+                        <p>Professional Scrum Master I, Professional Scrum Product Owner I, Microsoft Applied Skills, and additional badges.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Relocation</strong>
+                        <p>Open to Australian software roles and prepared for remote interviews across Australian time zones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-label">Project Fit</div>
+                    <h2>Relevant experience for Australian software teams.</h2>
+                    <p>These examples show the kind of work I can contribute to in Australia: business systems, integrations, cloud-ready applications, maintainable software, and production support.</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="section-label">Productivity / Web</div>
+                        <h3>Email Productivity & Tracking Solutions</h3>
+                        <p>Involved in building and maintaining email productivity tools and tracking systems, with a focus on reliability, performance, and customer workflows.</p>
+                        <div class="pill-row">
+                            <span class="pill">ASP.NET Core</span><span class="pill">Web API</span><span class="pill">SQL Server</span><span class="pill">Azure App Service</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="section-label">Business Applications</div>
+                        <h3>Line-of-Business Web Applications</h3>
+                        <p>Designed and supported internal systems, dashboards, and business tools with authentication, reporting, clean UI, and maintainable architecture.</p>
+                        <div class="pill-row">
+                            <span class="pill">ASP.NET MVC</span><span class="pill">Blazor</span><span class="pill">Bootstrap</span><span class="pill">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="section-label">Integrations</div>
+                        <h3>Salesforce API Integration</h3>
+                        <p>Worked on OAuth-based Salesforce integration patterns involving authentication, callbacks, connected apps, list views, contacts, and secure token handling.</p>
+                        <div class="pill-row">
+                            <span class="pill">OAuth 2.0</span><span class="pill">Salesforce API</span><span class="pill">C#</span><span class="pill">REST</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="section-label">Modernisation</div>
+                        <h3>Desktop & Legacy Modernisation</h3>
+                        <p>Developed and maintained desktop applications while helping move legacy functionality toward web-based and cloud-friendly architecture.</p>
+                        <div class="pill-row">
+                            <span class="pill">VB.NET</span><span class="pill">C#</span><span class="pill">WinForms</span><span class="pill">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container cta" id="contact">
+                <div>
+                    <div class="section-label">Availability</div>
+                    <h2>Open to discussing Australian software opportunities.</h2>
+                    <p>I am interested in Senior Developer, Software Engineer, Technical Lead, .NET Developer, Azure Developer, Developer Programmer, and API Integration roles in Australia.</p>
+                </div>
+                <div class="actions" style="margin-top: 0;">
+                    <a class="btn btn-primary" href="mailto:deepakchand747@outlook.com">Email Me</a>
+                    <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">View LinkedIn</a>
+                    <a class="btn btn-secondary" href="index.html">Back to Portfolio</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 · Deepak Chand · Senior Software Developer & Team Lead · Fiji · Open to Australia
+        </div>
+    </footer>
+</body>
+</html>
